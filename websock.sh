@@ -4,9 +4,9 @@ cd /root
 
 figlet -f slant Install WS | lolcat
 # Install Template
-wget -q -O /usr/local/bin/ws-drop "#"
-wget -q -O /usr/local/bin/ws-ovpn "#"
-wget -q -O /usr/local/bin/ws-tls "#"
+wget -q -O /usr/local/bin/ws-drop "https://raw.githubusercontent.com/Afdhan/CDN/main/ws-dropbear.py"
+wget -q -O /usr/local/bin/ws-ovpn "https://raw.githubusercontent.com/Afdhan/CDN/main/ws-ovpn.py"
+wget -q -O /usr/local/bin/ws-tls "https://raw.githubusercontent.com/Afdhan/CDN/main/ws-tls.py"
 
 chmod +x /usr/local/bin/ws-drop
 chmod +x /usr/local/bin/ws-ovpn
@@ -87,3 +87,4 @@ systemctl restart ws-dropbear.service
 systemctl restart ws-openvpn.service
 systemctl restart ws-stunnel.service
 
+figlet -f slant Done Install WS | lolcat
