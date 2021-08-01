@@ -105,10 +105,25 @@ systemctl enable ws-openssh.service
 systemctl enable ws-openvpn.service
 systemctl enable ws-stunnel.service
 
-# Restatt
+# Restart
 systemctl restart ws-dropbear.service
 systemctl restart ws-openssh.service
 systemctl restart ws-openvpn.service
 systemctl restart ws-stunnel.service
+
+#BadVPN WS
+wget https://github.com/ambrop72/badvpn/archive/master.zip
+unzip master.zip
+cd badvpn-master
+mkdir build
+cmake .. -DBUILD_NOTHING_BY_DEFAULT=1 -DBUILD_UDPGW=1
+sudo make install
+
+# Install Module
+apt install dnsutils jq -y
+apt-get install net-tools -y
+apt-get install tcpdump -y
+apt-get install dsniff -y
+apt install grepcidr -y
 
 figlet -f slant Done Install WS | lolcat
