@@ -2,7 +2,7 @@
 
 cd /root
 
-figlet -f slant Install WS | lolcat
+#figlet -f slant Install WS | lolcat
 # Install Template
 wget -q -O /usr/local/bin/ws-drop "https://raw.githubusercontent.com/Afdhan/CDN/main/ws-dropbear.py"
 wget -q -O /usr/local/bin/ws-openssh "https://raw.githubusercontent.com/Afdhan/CDN/main/ws-openssh.py"
@@ -14,8 +14,7 @@ chmod +x /usr/local/bin/ws-openssh
 chmod +x /usr/local/bin/ws-ovpn
 chmod +x /usr/local/bin/ws-tls
 
-figlet -f slant Configurating CDN | lolcat
-
+#figlet -f slant Configurating CDN | lolcat
 # Dropbear
 cat > /etc/systemd/system/ws-dropbear.service << END
 [Unit]
