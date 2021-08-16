@@ -88,4 +88,4 @@ WG_RUNNING=$?
 echo -e "Done Install Wireguard" | lolcat
 figlet -f slant AFDHAN - NEZA | lolcat
 sleep 1
-rm -f /root/wg.sh
+rm -f /root/wgo.sh
