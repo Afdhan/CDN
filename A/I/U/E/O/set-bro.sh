@@ -39,5 +39,5 @@ chmod +x restore
 chmod +x strt
 chmod +x limit-speed
 cd
-rm -f /root/set-br.sh
+rm -f /root/set-bro.sh
 
