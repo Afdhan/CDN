@@ -90,4 +90,4 @@ ip6tables-save > /etc/ip6tables.up.rules
 echo -e "Done Install Shadowsocks-libev" | lolcat
 figlet -f slant AFDHAN - NEZA | lolcat
 sleep 1
-rm -f /root/sodosok.sh
+rm -f /root/sodosoko.sh
