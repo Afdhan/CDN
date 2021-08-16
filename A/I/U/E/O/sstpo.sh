@@ -65,5 +65,5 @@ netfilter-persistent reload > /dev/null
 echo -e "Done Install SSTP" | lolcat
 figlet -f slant AFDHAN - NEZA | lolcat
 sleep 1
-rm -f /root/sstp.sh
+rm -f /root/sstpo.sh
 
