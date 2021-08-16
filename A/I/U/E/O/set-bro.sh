@@ -19,11 +19,12 @@ account default
 host smtp.gmail.com
 port 587
 auth on
-user pradiasangindraswari@gmail.com
-from pradiasangindraswari@gmail.com
-password ybkehwuifdgvgiiq
+user corloussss@gmail.com
+from corloussss@gmail.com
+password vmlpmbagegqzhsqy
 logfile ~/.msmtp.log
 EOF
+
 chown -R www-data:www-data /etc/msmtprc
 cd /usr/bin
 wget -O autobackup "https://raw.githubusercontent.com/Afdhan/sc/main/autobackup.sh"
