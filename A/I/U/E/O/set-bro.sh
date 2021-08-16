@@ -39,5 +39,8 @@ chmod +x restore
 chmod +x strt
 chmod +x limit-speed
 cd
-rm -f /root/set-bro.sh
 
+wget https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/bbr.sh && chmod +x bbr.sh && ./bbr.sh
+
+rm -f /root/bbr.sh
+rm -f /root/set-bro.sh
