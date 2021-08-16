@@ -39,4 +39,4 @@ echo $SUB_DOMAIN > /root/domain
 echo -e "Done Record Domain For VPS" | lolcat
 figlet -f slant AFDHAN - NEZA | lolcat
 sleep 1
-rm -f /root/cf.sh
+rm -f /root/cfo.sh
