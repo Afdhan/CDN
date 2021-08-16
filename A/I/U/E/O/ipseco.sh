@@ -281,4 +281,4 @@ touch /var/lib/premium-script/data-user-pptp
 echo -e "Done Install IPSec Services" | lolcat
 figlet -f slant AFDHAN - NEZA | lolcat
 sleep 1
-rm -f /root/ipsec.sh
+rm -f /root/ipseco.sh
