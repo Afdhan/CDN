@@ -249,7 +249,7 @@ netfilter-persistent reload
 cd /usr/bin
 echo "0 5 * * * root clear-log && reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
-echo "*/5 * * * * root xp-ws" >> /etc/crontab
+echo "*/10 * * * * root xp-ws" >> /etc/crontab
 # remove unnecessary files
 cd
 apt autoclean -y
