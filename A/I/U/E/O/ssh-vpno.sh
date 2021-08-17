@@ -89,7 +89,7 @@ echo "sleep 1" >> .profile
 echo "clear" >> .profile
 echo "neofetch" >> .profile
 echo "echo -e \"\x1b[96m - Mod By Dhansss X NezaVPN\x1b[m\"" >> .profile
-echo "echo -e \"\"" >> .profile
+echo "echo -e \"Silahkan Ketik menu Untuk Melihat daftar Perintah\"" >> .profile
 
 # install webserver
 apt -y install nginx
@@ -98,7 +98,7 @@ rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
 wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/Afdhan/sc/main/nginx.conf"
 mkdir -p /home/vps/public_html
-echo "<br><b><center><a href=\"https://wa.me/6282252655313\">AFDHAN</a> - NEZA VPN PROJECT</center></b></br>" >> /home/vps/public_html/index.html
+echo "<br><b><center><a href=\"https://wa.me/6282252655313\">AFDHAN</a> - <a href="https://wa.me/6283129011845">NEZA</a> VPN PROJECT</center></b></br>" >> /home/vps/public_html/index.html
 wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/Afdhan/sc/main/vps.conf"
 /etc/init.d/nginx restart
 
