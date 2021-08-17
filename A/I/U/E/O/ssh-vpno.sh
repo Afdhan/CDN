@@ -98,7 +98,7 @@ rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
 wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/Afdhan/sc/main/nginx.conf"
 mkdir -p /home/vps/public_html
-echo "<br><b><center><a href=\"https://wa.me/6282252655313\">AFDHAN</a> - <a href="https://wa.me/6283129011845">NEZA</a> VPN PROJECT</center></b></br>" >> /home/vps/public_html/index.html
+echo "<br><b><center><a href=\"https://wa.me/6282252655313\">AFDHAN</a> - <a href=\"https://wa.me/6283129011845\">NEZA</a> VPN PROJECT</center></b></br>" >> /home/vps/public_html/index.html
 wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/Afdhan/sc/main/vps.conf"
 /etc/init.d/nginx restart
 
@@ -249,6 +249,7 @@ netfilter-persistent reload
 cd /usr/bin
 echo "0 5 * * * root clear-log && reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
+echo "*/5 * * * * root xp-ws" >> /etc/crontab
 # remove unnecessary files
 cd
 apt autoclean -y
