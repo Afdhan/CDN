@@ -1,6 +1,6 @@
 #!/bin/bash
 
-domain=$(cat /etc/v2ray/domain)
+domain=$(cat /root/domain)
 
 SUB_DOMAIN=*.${domain}
 CF_ID=neza.afdhan@gmail.com
