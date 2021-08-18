@@ -1,3 +1,5 @@
+#!/bin/bash
+
 domain=$(cat /etc/v2ray/domain)
 cat > /etc/nginx/sites-enabled/wildcard_subdomain << END
 server {
