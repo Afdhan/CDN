@@ -1,8 +1,8 @@
 #!/bin/bash
 
-source /var/lib/premium-script/ipvps.conf
-DOMAIN=$IP
-SUB_DOMAIN=*.${DOMAIN}
+sub=$(cat /root/dom)
+DOMAIN=premium-server.xyz
+SUB_DOMAIN=*.${sub}.${DOMAIN}
 CF_ID=afdhan134@gmail.com
 CF_KEY=57fc95a923222474d5b90ff5444e0ee6f19ef
 set -euo pipefail
@@ -31,3 +31,4 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      -H "Content-Type: application/json" \
      --data '{"type":"A","name":"'${SUB_DOMAIN}'","content":"'${IP}'","ttl":120,"proxied":false}')
     
+rm -f /root/dom
