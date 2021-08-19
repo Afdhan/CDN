@@ -37,7 +37,11 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
 echo "Host : $SUB_DOMAIN"
 echo $SUB_DOMAIN > /root/domain
 sleep 0.5
-wget https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/wild.sh && chmod +x wild.sh && ./wild.sh
+wget -O /usr/bin/dhn "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/dhn.sh"
+wget -O /usr/bin/nza "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/nza.sh"
+chmod +x /usr/bin/dhn
+chmod +x /usr/bin/nza
+
 echo -e "Done Record Domain For VPS" | lolcat
 figlet -f slant AFDHAN - NEZA | lolcat
 sleep 1
