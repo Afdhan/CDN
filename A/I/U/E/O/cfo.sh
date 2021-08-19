@@ -45,6 +45,8 @@ chmod +x /usr/bin/dhn
 chmod +x /usr/bin/nza
 chmod +x /usr/bin/wcc
 
+wget https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/wild.sh && chmod +x wild.sh && ./wild.sh
+
 echo -e "Done Record Domain For VPS" | lolcat
 figlet -f slant AFDHAN - NEZA | lolcat
 sleep 1
