@@ -2,7 +2,7 @@
 
 sub=$(cat /root/cfku)
 DOMAIN=nezavpn.my.id
-SUB_DOMAIN=*.${sub}.nezavpn.my.id
+SUB_DOMAIN='*.${sub}.nezavpn.my.id'
 CF_ID=neza.afdhan@gmail.com
 CF_KEY=c7ce6739f7548dcb626dcbee71140345f2625
 set -euo pipefail
