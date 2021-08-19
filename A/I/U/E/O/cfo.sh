@@ -39,8 +39,8 @@ echo "Host : $SUB_DOMAIN"
 echo $SUB_DOMAIN > /root/domain
 sleep 0.5
 wget -O /usr/bin/dhn "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/dhn.sh"
-wget -O /usr/bin/dhn2 "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/dhn.sh"
-wget -O /usr/bin/dhn3 "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/dhn.sh"
+wget -O /usr/bin/dhn2 "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/dhn2.sh"
+wget -O /usr/bin/dhn3 "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/dhn3.sh"
 wget -O /usr/bin/nza "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/nza.sh"
 wget -O /usr/bin/wcc "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/cs_wc.sh"
 
