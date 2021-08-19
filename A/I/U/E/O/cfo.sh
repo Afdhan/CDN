@@ -39,8 +39,11 @@ echo $SUB_DOMAIN > /root/domain
 sleep 0.5
 wget -O /usr/bin/dhn "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/dhn.sh"
 wget -O /usr/bin/nza "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/nza.sh"
+wget -O /usr/bin/wcc "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/cs_wc.sh"
+
 chmod +x /usr/bin/dhn
 chmod +x /usr/bin/nza
+chmod +x /usr/bin/wcc
 
 echo -e "Done Record Domain For VPS" | lolcat
 figlet -f slant AFDHAN - NEZA | lolcat
