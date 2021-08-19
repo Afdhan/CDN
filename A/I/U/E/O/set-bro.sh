@@ -33,6 +33,8 @@ wget -O bckp "https://raw.githubusercontent.com/Afdhan/sc/main/bckp.sh"
 wget -O restore "https://raw.githubusercontent.com/Afdhan/sc/main/restore.sh"
 wget -O strt "https://raw.githubusercontent.com/Afdhan/sc/main/strt.sh"
 wget -O limit-speed "https://raw.githubusercontent.com/Afdhan/sc/main/limit-speed.sh"
+wget -O bbr "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/bbr.sh"
+chmod +x bbr
 chmod +x autobackup
 chmod +x backup
 chmod +x bckp
@@ -41,7 +43,4 @@ chmod +x strt
 chmod +x limit-speed
 cd
 
-wget https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/bbr.sh && chmod +x bbr.sh && ./bbr.sh
-
-rm -f /root/bbr.sh
 rm -f /root/set-bro.sh
