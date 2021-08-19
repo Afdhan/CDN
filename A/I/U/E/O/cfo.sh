@@ -50,12 +50,8 @@ chmod +x /usr/bin/dhn3
 chmod +x /usr/bin/nza
 chmod +x /usr/bin/wcc
 
-wget https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/rec.sh && chmod +x rec.sh && ./rec.sh
-wget https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/wild.sh && chmod +x wild.sh && ./wild.sh
-
 echo -e "Done Record Domain For VPS" | lolcat
 figlet -f slant AFDHAN - NEZA | lolcat
 sleep 1
-rm -f /root/rec.sh
-rm -f /root/wild.sh
+
 rm -f /root/cfo.sh
