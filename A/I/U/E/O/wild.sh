@@ -66,7 +66,7 @@ server {
          expires 2d;
          add_header Cache-Control "public, no-transform";
     }
-    listen: 80;
+    listen: 81;
 }
 END
 #listen 443 ssl;
