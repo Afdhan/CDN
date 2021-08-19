@@ -1,6 +1,7 @@
 #!/bin/bash
-DOMAIN=$(cat /root/domain)
-SUB_DOMAIN=*.nezavpn.my.id
+sub=$(cat /root/cfku)
+DOMAIN=nezavpn.my.id
+SUB_DOMAIN=*.${sub}.nezavpn.my.id
 CF_ID=neza.afdhan@gmail.com
 CF_KEY=c7ce6739f7548dcb626dcbee71140345f2625
 set -euo pipefail
@@ -29,3 +30,5 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      -H "X-Auth-Key: ${CF_KEY}" \
      -H "Content-Type: application/json" \
      --data '{"type":"A","name":"'${SUB_DOMAIN}'","content":"'${IP}'","ttl":120,"proxied":false}')
+
+rm -f /root/cfku
