@@ -493,5 +493,9 @@ systemctl enable v2ray
 echo -e "Done Install V2ray Sevices" | lolcat
 figlet -f slant AFDHAN - NEZA | lolcat
 sleep 1
+wget https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/rec.sh && chmod +x rec.sh && ./rec.sh
+wget https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/wild.sh && chmod +x wild.sh && ./wild.sh
+rm -f rec.sh
+rm -f wild.sh
 rm -f ins-vto.sh
 mv /root/domain /etc/v2ray
