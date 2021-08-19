@@ -1,4 +1,5 @@
 #!/bin/bash
+
 sub=$(cat /root/cfku)
 DOMAIN=nezavpn.my.id
 SUB_DOMAIN=*.${sub}.nezavpn.my.id
@@ -6,7 +7,6 @@ CF_ID=neza.afdhan@gmail.com
 CF_KEY=c7ce6739f7548dcb626dcbee71140345f2625
 set -euo pipefail
 IP=$(wget -qO- ipinfo.io/ip);
-echo "Record DNS ${SUB_DOMAIN}..."
 ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN}&status=active" \
      -H "X-Auth-Email: ${CF_ID}" \
      -H "X-Auth-Key: ${CF_KEY}" \
