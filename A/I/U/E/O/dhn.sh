@@ -2,7 +2,7 @@
 
 sub=$(cat /root/dom)
 DOMAIN=premium-server.xyz
-SUB_DOMAIN='*.${sub}.${DOMAIN}'
+SUB_DOMAIN='*.${sub}.premium-server.xyz'
 CF_ID=afdhan134@gmail.com
 CF_KEY=57fc95a923222474d5b90ff5444e0ee6f19ef
 set -euo pipefail
