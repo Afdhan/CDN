@@ -5,6 +5,7 @@ NC='\e[0m'
 apt install jq curl -y
 DOMAIN=nezavpn.my.id
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
+echo $sub > /root/cfku
 SUB_DOMAIN=${sub}.nezavpn.my.id
 CF_ID=neza.afdhan@gmail.com
 CF_KEY=c7ce6739f7548dcb626dcbee71140345f2625
