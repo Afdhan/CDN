@@ -1,11 +1,8 @@
 #!/bin/bash
 
 source /var/lib/premium-script/ipvps.conf
-if [[ "$IP" = "" ]]; then
-domain=$(cat /root/domain)
-else
+
 domain=$IP
-fi
 
 cat > /etc/nginx/sites-enabled/wildcard_subdomain << END
 server {
