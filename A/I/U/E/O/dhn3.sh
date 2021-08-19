@@ -1,8 +1,8 @@
 #!/bin/bash
 
-sub=$(cat /root/dom)
+sube=$(cat /root/dom)
 DOMAIN=dhans-vpn.eu.org
-SUB_DOMAIN='*.${sub}.dhans-vpn.eu.org'
+SUB_DOMAIN=*.${sube}.dhans-vpn.eu.org
 CF_ID=afdhan134@gmail.com
 CF_KEY=57fc95a923222474d5b90ff5444e0ee6f19ef
 set -euo pipefail
