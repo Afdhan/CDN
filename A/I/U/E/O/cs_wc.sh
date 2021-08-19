@@ -2,9 +2,9 @@
 
 source /var/lib/premium-script/ipvps.conf
 if [[ "$IP" = "" ]]; then
-domin=$(cat /root/domain)
+domain=$(cat /root/domain)
 else
-domin=$IP
+domain=$IP
 fi
 
 cat > /etc/nginx/sites-enabled/wildcard_subdomain << END
