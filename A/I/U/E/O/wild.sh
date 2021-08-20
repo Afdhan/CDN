@@ -1,6 +1,9 @@
 #!/bin/bash
-
+if [ ! -e /root/domain ]; then
+domin=$(cat /etc/v2ray/domain)
+else
 domin=$(cat /root/domain)
+fi
 
 cat > /etc/nginx/sites-enabled/wildcard_subdomain << END
 server {
