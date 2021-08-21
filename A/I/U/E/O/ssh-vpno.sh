@@ -89,7 +89,7 @@ echo "sleep 1" >> .profile
 echo "clear" >> .profile
 echo "neofetch" >> .profile
 echo "echo -e \"\x1b[96m - Mod By Dhansss X NezaVPN\x1b[m\"" >> .profile
-echo "echo -e \"\x1b[96m Silahkan Ketik\x1b[m \x1b[92mmenu\x1b[m \x1b[96mUntuk Melihat daftar Perintah\x1b[m\"" >> .profile
+echo "echo -e \"\x1b[96m   Silahkan Ketik\x1b[m \x1b[92mmenu\x1b[m \x1b[96mUntuk Melihat daftar Perintah\x1b[m\"" >> .profile
 
 # install webserver
 apt -y install nginx
@@ -205,7 +205,7 @@ apt -y install fail2ban
 
 # Instal DDOS Flate
 if [ -d '/usr/local/ddos' ]; then
-	echo; echo; echo "Please un-install the previous version first"
+	echo; echo; echo "Tolong  Uninstall Versi Sebelumnya!"
 	exit 0
 else
 	mkdir /usr/local/ddos
@@ -253,8 +253,7 @@ netfilter-persistent save
 netfilter-persistent reload
 
 cd /usr/bin
-echo "0 5 * * * root clear-log && reboot" >> /etc/crontab
-echo "0 0 * * * root xp" >> /etc/crontab
+echo "0 0 * * * root clear-log && xp" >> /etc/crontab
 echo "*/10 * * * * root xp-ws" >> /etc/crontab
 # remove unnecessary files
 cd
