@@ -297,6 +297,7 @@ echo '#!/bin/bash' > /usr/local/bin/reboot_otomatis
 echo 'tanggal=$(date +"%m-%d-%Y")' >> /usr/local/bin/reboot_otomatis 
 echo 'waktu=$(date +"%T")' >> /usr/local/bin/reboot_otomatis
 echo 'clear-log' >> /usr/local/bin/reboot-otomatis
+echo 'resett' >> /usr/local/bin/reboot-otomatis
 echo 'echo "Server Berhasil Reboot Pada Tanggal $tanggal Dan Jam $waktu." >> /root/log-reboot.txt' >> /usr/local/bin/reboot_otomatis 
 echo '/sbin/shutdown -r now' >> /usr/local/bin/reboot_otomatis 
 chmod +x /usr/local/bin/reboot_otomatis
