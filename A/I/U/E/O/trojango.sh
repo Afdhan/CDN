@@ -1,6 +1,4 @@
 #!/bin/bash
-# Trojan Go Auto Setup 
-# =========================
 
 # Domain 
 domain=$(cat /etc/v2ray/domain)
