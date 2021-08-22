@@ -89,7 +89,7 @@ echo "sleep 1" >> .profile
 echo "clear" >> .profile
 echo "neofetch" >> .profile
 echo "echo -e \"\x1b[96m - Mod By Dhansss X NezaVPN\x1b[m\"" >> .profile
-echo "echo -e \"\x1b[96m   Silahkan Ketik\x1b[m \x1b[92mmenu\x1b[m \x1b[96mUntuk Melihat daftar Perintah\x1b[m\"" >> .profile
+echo "echo -e \"\x1b[96m - Silahkan Ketik\x1b[m \x1b[92mmenu\x1b[m \x1b[96mUntuk Melihat daftar Perintah\x1b[m\"" >> .profile
 
 # install webserver
 apt -y install nginx
@@ -164,8 +164,12 @@ socket = l:TCP_NODELAY=1
 socket = r:TCP_NODELAY=1
 
 [websocket]
-accept = 2053
+accept = 443
 connect = 700
+
+[dropbear]
+accept = 777
+connect = 127.0.0.1:109
 
 [dropbear]
 accept = 567
