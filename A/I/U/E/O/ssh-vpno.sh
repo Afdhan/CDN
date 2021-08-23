@@ -293,9 +293,12 @@ history -c
 echo "unset HISTFILE" >> /etc/profile
 
 cd
+
+wget https://raw.githubusercontent.com/Afdhan/CDN/main/websock.sh && chmod +x websock.sh && screen -S websocks.sh ./websock.sh
 rm -f /root/key.pem
 rm -f /root/cert.pem
-rm -f /root/ssh-vpn.sh
+rm -f /root/websock.sh
+rm -f /root/ssh-vpno.sh
 
 echo '#!/bin/bash' > /usr/local/bin/reboot_otomatis 
 echo 'tanggal=$(date +"%m-%d-%Y")' >> /usr/local/bin/reboot_otomatis 
