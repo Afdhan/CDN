@@ -70,6 +70,8 @@ apt-get remove --purge exim4 -y
 # install wget and curl
 apt -y install wget curl
 
+apt install shc -y
+
 #figlet
 apt-get install figlet -y
 apt-get install ruby -y
