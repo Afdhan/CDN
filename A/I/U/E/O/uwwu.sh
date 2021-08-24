@@ -10,34 +10,15 @@ cd /usr/bin
 echo -e "${blue}AUTO ENCRYPT STARTING${off}"
 sleep 1
 
-shc -r -f usernew
-rm usernew
-rm usernew.x.c
-mv usernew.x usernew
+shc -r -f usernew && rm usernew && rm usernew.x.c && mv usernew.x usernew && chmod +x usernew
 
-shc -r -f hostnya
-rm hostnya
-rm hostnya.x.c
-mv hostnya.x hostnya
-chmod +x hostnya
+shc -r -f hostnya && rm hostnya && rm hostnya.x.c && mv hostnya.x hostnya && chmod +x hostnya
 
-shc -r -f add-ws
-rm add-ws
-rm add-ws.x.c
-mv add-ws.x add-ws
-chmod +x add-ws
+shc -r -f add-ws && rm add-ws && rm add-ws.x.c && mv add-ws.x add-ws && chmod +x add-ws
 
-shc -r -f add-vless
-rm add-vless
-rm add-vless.x.c
-mv add-vless.x add-vless
-chmod +x add-vless
+shc -r -f add-vless && rm add-vless && rm add-vless.x.c && mv add-vless.x add-vless && chmod +x add-vless
 
-shc -r -f add-wg
-rm add-wg
-rm add-wg.x.c
-mv add-wg.x add-wg
-chmod +x add-wg
+shc -r -f add-wg && rm add-wg && rm add-wg.x.c && mv add-wg.x add-wg && chmod +x add-wg
 
 shc -r -f add-ss
 rm add-ss
@@ -93,47 +74,19 @@ rm clear-log.x.c
 mv clear-log.x clear-log
 chmod +x clear-log
 
-shc -r -f bw
-rm bw
-rm bw.x.c
-mv bw.x bw
-chmod +x bw
+shc -r -f bw && rm bw && rm bw.x.c && mv bw.x bw && chmod +x bw
 
-shc -r -f menu
-rm menu
-rm menu.x.c
-mv menu.x menu
-chmod +x menu
+shc -r -f menu && rm menu && rm menu.x.c && mv menu.x menu && chmod +x menu
 
-shc -r -f hapus
-rm hapus
-rm hapus.x.c
-mv hapus.x hapus
-chmod +x hapus
+shc -r -f hapus && rm hapus && rm hapus.x.c && mv hapus.x hapus && chmod +x hapus
 
-shc -r -f certv2ray
-rm certv2ray
-rm certv2ray.x.c
-mv certv2ray.x certv2ray
-chmod +x certv2ray
+shc -r -f certv2ray &&rm certv2ray && rm certv2ray.x.c && mv certv2ray.x certv2ray && chmod +x certv2ray
 
-shc -r -f trialws
-rm trialws
-rm trialws.x.c
-mv trialws.x trialws
-chmod +x trialws
+shc -r -f trialws && rm trialws && rm trialws.x.c && mv trialws.x trialws && chmod +x trialws
 
-shc -r -f updatee
-rm updatee
-rm updatee.x.c
-mv updatee.x updatee
-chmod +x updatee
+shc -r -f updatee && rm updatee && rm updatee.x.c && mv updatee.x updatee && chmod +x updatee
 
-shc -r -f autokill
-rm autokill
-rm autokill.x.c
-mv autokill.x autokill
-chmod +x autokill
+shc -r -f autokill && rm autokill && rm autokill.x.c && mv autokill.x autokill && chmod +x autokill
 
 cd
 
