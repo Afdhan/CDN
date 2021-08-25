@@ -11,7 +11,7 @@ white='\x1b[37m'
 bold='\033[1m'
 off='\x1b[m'
 flag='\x1b[47;41m'
-
+NC='\x1b[m'
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
 CITY=$(curl -s ipinfo.io/city )
 COUNTRY=$(curl -s ipinfo.io/country )
@@ -45,7 +45,7 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXIST} && ${user_EXISTS} == '0' ]]; 
 		read -rp "Remarks : " -e user
 		user_EXIST=$(grep -w $user /etc/trojan-go/akun.conf | wc -l)
         user_EXISTS=$(grep -w $user /etc/trojan/akun.conf | wc -l)
-		if [[ ${user_EXIST} || ${user_EXISTS}  == '1' ]]; then
+		if [[ ${user_EXIST} == "1" ]] || [[ ${user_EXISTS}  == '1' ]]; then
 			echo ""
 			echo "Nama User Sudah Ada, Harap Masukkan Nama Lain!"
 			exit 1
