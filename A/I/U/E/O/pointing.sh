@@ -1,61 +1,75 @@
- #!/bin/bash
+#!/bin/bash
+
+
+red='\e[1;31m'
+green='\e[0;32m'
+NC='\e[0m'
+cyan='\x1b[96m'
+white='\x1b[37m'
+bold='\033[1m'
+off='\x1b[m'
 
 clear
 
-	#Cek user root
-	if [ "$EUID" -ne "0" ]
-	then
+	if [ "$EUID" -ne "0" ]; then
 		echo "Login Akses Root Dulu Om"
-		exit
+		exit 0
 	fi
 
-	#Choose External Port
-	echo "Masukan Port Yang Ingin Di Open"
-	read -r "extport"
+	read -p "Masukan Port Yang Ingin Di Open :  " extport
 
-	#Find vpn address
-	echo "Masukan IP Yang Ingin Dipointing"
-	read "vpsip"
-
-	#Find Internal port
-	echo "Masukan Port Internal"
-	read "intport"
-
-	#What protocol
-
-	echo "Masukan protocol tcp / udp / tcp/udp"
-	read protocol
-	if [ \( "$protocol" == "tcp" \) -o \( "$protocol" == "udp" \) -o \( "$protocol" == "tcp/udp" \) ]
-	then
-		echo "Selesai"
+	read -p "Masukan IP Yang Ingin Dipointing :  " vpsip
+	
+	read -p "Masukan Port Internal :  " intport
+	 
+echo -e ""
+echo -e "${cyan}======================================${off}"
+echo -e "           ${green}PILIH PROTOCOL${off}"
+echo -e "${cyan}======================================${off}"
+echo -e "${green}"
+echo -e "     1 ⸩  Protocol TCP"
+echo -e "     2 ⸩  Protocol UDP"
+echo -e "     3 ⸩  Protocol TCP/UDP"
+echo -e "     x ⸩  Keluar"
+echo -e "${off}"
+echo -e "${cyan}======================================${off}"
+echo -e "${green}"
+read -p "     Pilih Nomor  [1-2 / x] :  " prot
+echo -e "${off}"
+	
+	if [[ $prot == "1" ]]; then
+	proto="tcp"
+	elif [[ $prot == "2" ]]; then
+	proto="udp"
+	elif [[ $prot == "3" ]]; then
+	proto="tcp/udp"
+	elif [[ $prot == "x" ]]; then
+	sleep 1
+	menu
 	else
-		echo "Harap Tentukan Protocol !!!"
-		exit
+	echo -e "Tentukan Protocol!"
+	exit 0
 	fi
+	
 
 	#Periksa kembali dengan pengguna apakah ini konfigurasi yang benar
-	echo "Silahkan Konfirmasi Apakah Konfigurasi Dibawah Ini Sudah Benar"
-	echo "$vpsip:$intport Dengan Protocol $protocol Dan Port $extport Sebagai Port External [y/n]"
-	read "konfirmasi"
+	echo -e "${cyan}======================================${off}"
+	echo "   IP:Port : $vpsip:$intport"
+    echo "   Protocol : $protocol"
+    echo "   Port Di Open : $extport"
+    echo -e "${cyan}======================================${off}"
+	read -p "  Konfirmasi Konfigurasi Diatas [y/n] :  " konfirmasi
 
 	#Execution
-	if [ "$konfirmasi" == "y" ]
-	then
+	if [[ $konfirmasi == "y" ]]; then
 
-		if [ "$protocol" == "tcp" ]
-		then
+		if [[ $proto == "tcp" ]]; then
 			iptables -A PREROUTING -t nat -i  ens4 -p tcp --dport "$extport" -j DNAT --to "$vpsip":"$intport"
 			iptables -A FORWARD -p tcp -d "$vpsip" --dport "$extport" -j ACCEPT
-		fi
-
-		if [ "$protocol" == "udp" ]
-		then
+		elif [[ $proto == "udp" ]]; then
 			iptables -A PREROUTING -t nat -i ens4 -p udp --dport "$extport" -j DNAT --to "$vpsip":"$intport"
 			iptables -A FORWARD -p udp -d "$vpsip" --dport "$extport" -j ACCEPT
-		fi
-
-		if [ "$protocol" == "tcp/udp" ]
-		then
+		elif [[ $proto == "tcp/udp" ]]; then
 			iptables -A PREROUTING -t nat -i  ens4 -p tcp --dport "$extport" -j DNAT --to "$vpsip":"$intport"
 			iptables -A FORWARD -p tcp -d "$vpsip" --dport "$extport" -j ACCEPT
 			iptables -A PREROUTING -t nat -i ens4 -p udp --dport "$extport" -j DNAT --to "$vpsip":"$intport"
@@ -63,24 +77,16 @@ clear
 		fi
 
 	else
-		echo "Script Dihentikan..."
-		exit
+		echo -e "$redScript Dihentikan...!$off"
+		sleep 2
+		menu
 	fi
-
-	#Asking To Save rules
-	echo "Apakah Anda ingin menyimpan aturan atau menghapusnya saat reboot? [y/n]"
-	read "simpan"
-
-	if [ "$simpan" == "y" ]
-	then
-		echo "Menyimpan Data..."
+	
 		iptables-save > /etc/iptables.up.rules
 		iptables-restore -t < /etc/iptables.up.rules
 		netfilter-persistent save
 		netfilter-persistent reload
 		systemctl daemon-reload
 		sleep 1
-	fi
-
-	#Reminder to port foward server side
-	#echo "Selesai! Ingatlah untuk menambahkan aturan firewall untuk $extport $protocol sisi server"
+	
+figlet -f slant Selesai | lolcat
