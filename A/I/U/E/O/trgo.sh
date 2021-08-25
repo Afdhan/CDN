@@ -94,7 +94,7 @@ cat > client.json << END
     }
 }
 END
-mv client.json /home/vps/public_html/Igniter-GO.json
+mv client.json /home/vps/public_html/${user}-IgniterGO.json
 clear
 echo -e ""
 echo -e "${cyan}=================================${off}"
@@ -109,14 +109,14 @@ echo -e " Port Trojan-GFW    : ${tr}"
 echo -e " Port Trojan-GO     : ${trojango}"
 echo -e " Key Trojan-GFW     : ${user2}"
 echo -e " Key Trojan-GO      : ${users}"
-echo -e " Igniter Password   : ${users}"
-echo -e " Path Trojan-GO     : /DhanZaa${off}"
+echo -e " Password Igniter   : ${users}"
+echo -e " Path WebSocket     : /DhanZaa${off}"
 echo -e "${cyan}=================================${off}"
 echo -e " Trojan-GFW  : ${trojanlink}" | lolcat
 echo -e "${cyan}=================================${off}"
 echo -e " Trojan-GO   : ${trojangolink}" | lolcat
 echo -e "${cyan}=================================${off}"
-echo -e " Igniter-GO  : http://${domain}:81/Igniter-GO.json" | lolcat
+echo -e " Igniter-GO  : http://${domain}:81/${user}-IgniterGO.json" | lolcat
 echo -e "${cyan}=================================${off}"
 echo -e " ${green}Aktif Selama   : $masaaktif Hari"
 echo -e " Dibuat Pada    : $tnggl"
