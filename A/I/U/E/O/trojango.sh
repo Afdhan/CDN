@@ -158,3 +158,8 @@ systemctl daemon-reload
 systemctl daemon-reload
 systemctl enable trojan-go.service
 systemctl start trojan-go
+
+figlet -f slant Done Install Trojan | lolcat
+sleep 1
+r
+m -f trojango.sh
