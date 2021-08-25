@@ -39,8 +39,8 @@ domain=$(cat /etc/v2ray/domain)
 else
 domain=$IP
 fi
-trojango="$(cat ~/log-install.txt | grep -i Trojan-GO | cut -d: -f2|sed 's/ //g')"
-tr="$(cat ~/log-install.txt | grep -i Trojan | cut -d: -f2|sed 's/ //g')"
+trojango="$(cat ~/log-install.txt | grep -i TrojanGO | cut -d: -f2|sed 's/ //g')"
+tr="$(cat ~/log-install.txt | grep -i TrojanGFW | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXIST} && ${user_EXISTS} == '0' ]]; do
 		read -rp "Remarks : " -e user
 		user_EXIST=$(grep -w $user /etc/trojan-go/akun.conf | wc -l)
@@ -51,8 +51,8 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXIST} && ${user_EXISTS} == '0' ]]; 
 			exit 1
 		fi
 	done
-users="Trojan-GO#$user"
-user2="Trojan-GFW#$user"
+users="Trojan-GO_$user"
+user2="Trojan-GFW_#$user"
 read -p "Expired (hari) : " masaaktif
 tgl=$(date -d "$masaaktif days" +"%d")
 bln=$(date -d "$masaaktif days" +"%b")
@@ -112,11 +112,11 @@ echo -e " Key Trojan-GO      : ${users}"
 echo -e " Igniter Password   : ${users}"
 echo -e " Path Trojan-GO     : /DhanZaa${off}"
 echo -e "${cyan}=================================${off}"
-echo -e " Trojan-GFW  : ${trojanlink}"
+echo -e " Trojan-GFW  : ${trojanlink}" | lolcat
 echo -e "${cyan}=================================${off}"
-echo -e " Trojan-GO   : ${trojangolink}"
+echo -e " Trojan-GO   : ${trojangolink}" | lolcat
 echo -e "${cyan}=================================${off}"
-echo -e " Igniter-GO  : http://${domain}:81/Igniter-GO.json"
+echo -e " Igniter-GO  : http://${domain}:81/Igniter-GO.json" | lolcat
 echo -e "${cyan}=================================${off}"
 echo -e " ${green}Aktif Selama   : $masaaktif Hari"
 echo -e " Dibuat Pada    : $tnggl"
