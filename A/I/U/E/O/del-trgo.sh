@@ -37,7 +37,7 @@ expe=$(grep -E "^### " "/etc/trojan-go/akun.conf" | cut -d ' ' -f 3 | sed -n "${
 users="Trojan-GO_$user"
 user2="Trojan-GFW_$user"
 
-sed -i "/^### $usere $expe/d" /etc/trojan-go/akun.conf
+sed -i "/^### $user $exp/d" /etc/trojan-go/akun.conf
 sed -i "/^### $user $exp/d" /etc/trojan/akun.conf
 sed -i '/^,"'"$users"'"$/d' /etc/trojan-go/config.json
 sed -i '/^,"'"$user2"'"$/d' /etc/trojan/config.json
