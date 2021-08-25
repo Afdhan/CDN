@@ -16,11 +16,80 @@ clear
 		exit 0
 	fi
 
-	read -p "Masukan Port Yang Ingin Di Open :  " extport
+protocoll=()
+ipnya=()
+portnya=()
+portt=()
 
-	read -p "Masukan IP Yang Ingin Dipointing :  " vpsip
+
+echo -e ""
+echo -e "${cyan}======================================${off}"
+echo -e "           ${green}PILIH PROTOCOL${off}"
+echo -e "${cyan}======================================${off}"
+echo -e "${green}"
+echo -e "     1 ⸩  Tambahkan Rule Point Iptables"
+echo -e "     2 ⸩  Hapus Rule Point Iptables"
+echo -e "     x ⸩  Keluar"
+echo -e "${off}"
+echo -e "${cyan}======================================${off}"
+echo -e "${green}"
+read -p "     Pilih Nomor  [1-2 / x] :  " prot
+echo -e "${off}"
+
+if [[ $plh == '2' ]]; then
+echo -e ""
+echo -e "${cyan}======================================${off}"
+echo -e "            ${green}POINTER${off}"
+echo -e "${cyan}======================================${off}"
+echo -e "${green}"
+echo -e "       Port Di Open $portt"
+echo -e "       IP Dipointing $ipnya"
+echo -e "       Port Internal $portnya"
+echo -e "       Protocol $protocol"
+echo -e "${off}"
+echo -e "${cyan}======================================${off}"
+echo -e "${green}"
+read -p "   Hapus Rule Pointing Iptables Diatas? [y/n] :  " hps
+echo -e "${off}"
+
+if [[ $hps == "y" ]]; then
+
+		if [[ $protocol == "tcp" ]]; then
+			iptables -D PREROUTING -t nat -i  ens4 -p tcp --dport "$portnya" -j DNAT --to "$ipnya":"$portt"
+			iptables -D FORWARD -p tcp -d "$ipnya" --dport "$portnya" -j ACCEPT
+		elif [[ $protocol == "udp" ]]; then
+			iptables -D PREROUTING -t nat -i ens4 -p udp --dport "$portnya" -j DNAT --to "$ipnya":"$portt"
+			iptables -D FORWARD -p udp -d "$ipnya" --dport "$portnya" -j ACCEPT
+		elif [[ $protocol == "tcp/udp" ]]; then
+			iptables -D PREROUTING -t nat -i  ens4 -p tcp --dport "$portnya" -j DNAT --to "$ipnya":"$portt"
+			iptables -D FORWARD -p tcp -d "$ipnya" --dport "$portnya" -j ACCEPT
+			iptables -D PREROUTING -t nat -i ens4 -p udp --dport "$portnya" -j DNAT --to "$ipnya":"$portt"
+			iptables -D FORWARD -p udp -d "$ipnya" --dport "$portnya" -j ACCEPT
+		fi
+
+	else
+		echo -e "$redScript Dihentikan...!$off"
+		sleep 2
+		menu
+	fi
 	
+		iptables-save > /etc/iptables.up.rules
+		iptables-restore -t < /etc/iptables.up.rules
+		netfilter-persistent save
+		netfilter-persistent reload
+		systemctl daemon-reload
+		sleep 1
+fi
+
+
+if [[ $plh == '1' ]]; then
+
+	read -p "Masukan Port Yang Ingin Di Open :  " extport
+        portt+=("$extport")
+	read -p "Masukan IP Yang Ingin Dipointing :  " vpsip
+        ipnya+=("$vpsip")
 	read -p "Masukan Port Internal :  " intport
+        portnya+=("$intport")
 	 
 echo -e ""
 echo -e "${cyan}======================================${off}"
@@ -34,7 +103,7 @@ echo -e "     x ⸩  Keluar"
 echo -e "${off}"
 echo -e "${cyan}======================================${off}"
 echo -e "${green}"
-read -p "     Pilih Nomor  [1-2 / x] :  " prot
+read -p "     Pilih Nomor  [1-3 / x] :  " prot
 echo -e "${off}"
 	
 	if [[ $prot == "1" ]]; then
@@ -51,7 +120,7 @@ echo -e "${off}"
 	exit 0
 	fi
 	
-
+        protocoll+=("$proto")
 	#Periksa kembali dengan pengguna apakah ini konfigurasi yang benar
 	echo -e "${cyan}======================================${off}"
 	echo "   IP:Port : $vpsip:$intport"
@@ -88,5 +157,9 @@ echo -e "${off}"
 		netfilter-persistent reload
 		systemctl daemon-reload
 		sleep 1
-	
+
 figlet -f slant Selesai | lolcat
+else
+sleep 2
+menu
+fi
