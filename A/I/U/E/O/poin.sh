@@ -55,7 +55,7 @@ echo -e "${off}"
 	#Periksa kembali dengan pengguna apakah ini konfigurasi yang benar
 	echo -e "${cyan}======================================${off}"
 	echo "   IP:Port : $vpsip:$intport"
-    echo "   Protocol : $protocol"
+    echo "   Protocol : $proto"
     echo "   Port Di Open : $extport"
     echo -e "${cyan}======================================${off}"
 	read -p "  Konfirmasi Konfigurasi Diatas [y/n] :  " konfirmasi
