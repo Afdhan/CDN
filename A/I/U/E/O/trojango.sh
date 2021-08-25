@@ -7,7 +7,13 @@ apt install screen -y
 apt install curl -y
 apt install zip
 
+source /var/lib/premium-script/ipvps.conf
+if [[ "$IP" = "" ]]; then
 domain=$(cat /etc/v2ray/domain)
+else
+domain=$IP
+fi
+
 uuid=$(cat /proc/sys/kernel/random/uuid)
 
 mkdir -p /etc/trojan-go/
