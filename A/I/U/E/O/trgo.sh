@@ -70,7 +70,7 @@ echo -e "### $user $exp" >> /etc/trojan/akun.conf
 systemctl restart trojan-go
 systemctl restart trojan
 trojangolink="trojan-go://${users}@${domain}:${trojango}/?sni=${domain}&type=ws&host=${domain}&path=/DhanZaa&encryption=none#${user}"
-trojanlink="trojan://${user2}@${domain}:${tr}#${user}"
+trojanlink="trojan://${user2}@${domain}:${tr}/?sni=bug-anda.com#${user}"
 cat > client.json << END
 {
     "run_type": "client",
