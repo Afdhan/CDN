@@ -52,7 +52,7 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXIST} && ${user_EXISTS} == '0' ]]; 
 		fi
 	done
 users="Trojan-GO_$user"
-user2="Trojan-GFW_#$user"
+user2="Trojan-GFW_$user"
 read -p "Expired (hari) : " masaaktif
 tgl=$(date -d "$masaaktif days" +"%d")
 bln=$(date -d "$masaaktif days" +"%b")
