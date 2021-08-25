@@ -159,7 +159,7 @@ systemctl daemon-reload
 systemctl enable trojan-go.service
 systemctl start trojan-go
 
-figlet -f slant Done Install Trojan | lolcat
+echo -e "Done Install Trojan" | lolcat
+figlet -f slant AFDHAN - NEZA | lolcat
 sleep 1
-r
-m -f trojango.sh
+rm -f trojango.sh
