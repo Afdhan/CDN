@@ -24,7 +24,7 @@ portt=()
 
 echo -e ""
 echo -e "${cyan}======================================${off}"
-echo -e "           ${green}PILIH PROTOCOL${off}"
+echo -e "           ${green}POINTING VPS${off}"
 echo -e "${cyan}======================================${off}"
 echo -e "${green}"
 echo -e "     1 ⸩  Tambahkan Rule Point Iptables"
@@ -39,28 +39,28 @@ echo -e "${off}"
 if [[ $plh == '2' ]]; then
 echo -e ""
 echo -e "${cyan}======================================${off}"
-echo -e "            ${green}POINTER${off}"
+echo -e "            ${green}HAPUS RULE${off}"
 echo -e "${cyan}======================================${off}"
 echo -e "${green}"
 echo -e "       Port Di Open $portt"
 echo -e "       IP Dipointing $ipnya"
 echo -e "       Port Internal $portnya"
-echo -e "       Protocol $protocol"
+echo -e "       Protocol $protocoll"
 echo -e "${off}"
 echo -e "${cyan}======================================${off}"
 echo -e "${green}"
 read -p "   Hapus Rule Pointing Iptables Diatas? [y/n] :  " hps
 echo -e "${off}"
 
-if [[ $hps == "y" ]]; then
+if [[ $hps == "y" ]] || [[ $hps == "Y" ]]; then
 
-		if [[ $protocol == "tcp" ]]; then
+		if [[ $protocoll == "tcp" ]]; then
 			iptables -D PREROUTING -t nat -i  ens4 -p tcp --dport "$portnya" -j DNAT --to "$ipnya":"$portt"
 			iptables -D FORWARD -p tcp -d "$ipnya" --dport "$portnya" -j ACCEPT
-		elif [[ $protocol == "udp" ]]; then
+		elif [[ $protocoll == "udp" ]]; then
 			iptables -D PREROUTING -t nat -i ens4 -p udp --dport "$portnya" -j DNAT --to "$ipnya":"$portt"
 			iptables -D FORWARD -p udp -d "$ipnya" --dport "$portnya" -j ACCEPT
-		elif [[ $protocol == "tcp/udp" ]]; then
+		elif [[ $protocoll == "tcp/udp" ]]; then
 			iptables -D PREROUTING -t nat -i  ens4 -p tcp --dport "$portnya" -j DNAT --to "$ipnya":"$portt"
 			iptables -D FORWARD -p tcp -d "$ipnya" --dport "$portnya" -j ACCEPT
 			iptables -D PREROUTING -t nat -i ens4 -p udp --dport "$portnya" -j DNAT --to "$ipnya":"$portt"
@@ -68,7 +68,7 @@ if [[ $hps == "y" ]]; then
 		fi
 
 	else
-		echo -e "$redScript Dihentikan...!$off"
+		echo -e "${red}Script Dihentikan...!${off}"
 		sleep 2
 		menu
 	fi
@@ -130,7 +130,7 @@ echo -e "${off}"
 	read -p "  Konfirmasi Konfigurasi Diatas [y/n] :  " konfirmasi
 
 	#Execution
-	if [[ $konfirmasi == "y" ]]; then
+	if [[ $konfirmasi == "y" ]] || [[ $konfirmasi == "Y" ]]; then
 
 		if [[ $proto == "tcp" ]]; then
 			iptables -A PREROUTING -t nat -i  ens4 -p tcp --dport "$extport" -j DNAT --to "$vpsip":"$intport"
@@ -146,7 +146,7 @@ echo -e "${off}"
 		fi
 
 	else
-		echo -e "$redScript Dihentikan...!$off"
+		echo -e "${red}Script Dihentikan...!${off}"
 		sleep 2
 		menu
 	fi
