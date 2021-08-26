@@ -310,7 +310,7 @@ echo 'resett' >> /usr/local/bin/reboot-otomatis
 echo 'echo "Server Berhasil Reboot Pada Tanggal $tanggal Dan Jam $waktu." >> /root/log-reboot.txt' >> /usr/local/bin/reboot_otomatis 
 echo '/sbin/shutdown -r now' >> /usr/local/bin/reboot_otomatis 
 chmod +x /usr/local/bin/reboot_otomatis
-echo "0 */12 * * * root /usr/local/bin/reboot_otomatis" > /etc/cron.d/reboot_otomatis
+echo "0 0 * * * root /usr/local/bin/reboot_otomatis" > /etc/cron.d/reboot_otomatis
 
 echo -e "Done Install SSH Services" | lolcat
 figlet -f slant AFDHAN - NEZA | lolcat
