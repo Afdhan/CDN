@@ -259,7 +259,7 @@ netfilter-persistent save
 netfilter-persistent reload
 
 cd /usr/bin
-echo "0 0 * * * root clear-log && xp" >> /etc/crontab
+echo "0 */6 * * * root clear-log" >> /etc/crontab
 echo "*/10 * * * * root xp-ws" >> /etc/crontab
 # remove unnecessary files
 cd
@@ -305,7 +305,7 @@ rm -f /root/ssh-vpno.sh
 echo '#!/bin/bash' > /usr/local/bin/reboot_otomatis 
 echo 'tanggal=$(date +"%m-%d-%Y")' >> /usr/local/bin/reboot_otomatis 
 echo 'waktu=$(date +"%T")' >> /usr/local/bin/reboot_otomatis
-echo 'clear-log' >> /usr/local/bin/reboot-otomatis
+echo 'clear-log && xp' >> /usr/local/bin/reboot-otomatis
 echo 'resett' >> /usr/local/bin/reboot-otomatis
 echo 'echo "Server Berhasil Reboot Pada Tanggal $tanggal Dan Jam $waktu." >> /root/log-reboot.txt' >> /usr/local/bin/reboot_otomatis 
 echo '/sbin/shutdown -r now' >> /usr/local/bin/reboot_otomatis 
