@@ -90,7 +90,7 @@ echo "figlet -f slant AFDHAN - NEZA | lolcat" >> .profile
 echo "sleep 1" >> .profile
 echo "clear" >> .profile
 echo "neofetch" >> .profile
-echo "echo -e \"\x1b[96m - Mod By Dhansss X NezaVPN\x1b[m\"" >> .profile
+echo "echo -e \" - Mod By Dhansss X NezaVPN\" | lolcat" >> .profile
 echo "echo -e \"\x1b[96m - Silahkan Ketik\x1b[m \x1b[92mmenu\x1b[m \x1b[96mUntuk Melihat daftar Perintah\x1b[m\"" >> .profile
 
 # install webserver
