@@ -59,7 +59,7 @@ echo -e "     x ⸩  Keluar"
 echo -e "${off}"
 echo -e "${cyan}======================================${off}"
 echo -e "${green}"
-read -p "     Pilih Nomor  [1-2 / x] :  " prot
+read -p "     Pilih Nomor  [1-2 / x] :  " plh
 echo -e "${off}"
 
 if [[ $plh == '2' ]]; then
