@@ -149,7 +149,7 @@ echo -e "${off}"
 	exit 0
 	fi
 	
-        echo "protocolnya=$proto" >> /var/lib/premium-script/
+        echo "protocolnya=$proto" >> /var/lib/premium-script/wibu.conf
 	#Periksa kembali dengan pengguna apakah ini konfigurasi yang benar
 	echo -e "${cyan}======================================${off}"
 	echo "   IP:Port : $vpsip:$intport"
