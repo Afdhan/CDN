@@ -92,7 +92,10 @@ if [[ $hps == "y" ]] || [[ $hps == "Y" ]]; then
 			iptables -D PREROUTING -t nat -i ens4 -p udp --dport "$portnya" -j DNAT --to "$ipnya":"$portt"
 			iptables -D FORWARD -p udp -d "$ipnya" --dport "$portnya" -j ACCEPT
 		fi
-
+echo "portku=" >> /var/lib/premium-script/wibu.conf
+echo "ipnya=" >> /var/lib/premium-script/wibu.conf
+echo "portnya=" >> /var/lib/premium-script/wibu.conf
+echo "protocolnya=" >> /var/lib/premium-script/wibu.conf
 	else
 		echo -e "${red}Script Dihentikan...!${off}"
 		sleep 2
