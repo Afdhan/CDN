@@ -9,6 +9,13 @@ white='\x1b[37m'
 bold='\033[1m'
 off='\x1b[m'
 
+if [ ! -e /var/lib/premium-script/wibu.conf ]; then
+echo "portku=" >> /var/lib/premium-script/wibu.conf
+echo "ipnya=" >> /var/lib/premium-script/wibu.conf
+echo "portnya=" >> /var/lib/premium-script/wibu.conf
+echo "protocolnya=" >> /var/lib/premium-script/wibu.conf
+fi
+
 clear
 
 	if [ "$EUID" -ne "0" ]; then
@@ -16,11 +23,30 @@ clear
 		exit 0
 	fi
 
-protocoll=()
-ipnya=()
-portnya=()
-portt=()
+source /var/lib/premium-script/wibu.conf
+if [[ $protocolnya == "" ]]; then
+protocoll="Tidak Ada"
+else
+protocoll=$protocolnya
+fi
 
+if [[ $ipnya == "" ]]; then
+ipnyaa="Tidak Ada"
+else
+ipnyaa=$ipnya
+fi
+
+if [[ $portnya == "" ]]; then
+portnyaa="Tidak Ada"
+else
+portnyaa=$portnya
+fi
+
+if [[ $portku == "" ]]; then
+portt="Tidak Ada"
+else
+portt=$portku
+fi
 
 echo -e ""
 echo -e "${cyan}======================================${off}"
@@ -42,10 +68,10 @@ echo -e "${cyan}======================================${off}"
 echo -e "            ${green}HAPUS RULE${off}"
 echo -e "${cyan}======================================${off}"
 echo -e "${green}"
-echo -e "       Port Di Open $portt"
-echo -e "       IP Dipointing $ipnya"
-echo -e "       Port Internal $portnya"
-echo -e "       Protocol $protocoll"
+echo -e "       Port Di Open : $portt"
+echo -e "       IP Dipointing : $ipnyaa"
+echo -e "       Port Internal : $portnyaa"
+echo -e "       Protocol : $protocoll"
 echo -e "${off}"
 echo -e "${cyan}======================================${off}"
 echo -e "${green}"
@@ -85,11 +111,14 @@ fi
 if [[ $plh == '1' ]]; then
 
 	read -p "Masukan Port Yang Ingin Di Open :  " extport
-        portt+=("$extport")
+        echo "portku=$extport" >> /var/lib/premium-script/wibu.conf
+        
 	read -p "Masukan IP Yang Ingin Dipointing :  " vpsip
-        ipnya+=("$vpsip")
+        echo "ipnya=$vpsip" >> /var/lib/premium-script/wibu.conf
+        
 	read -p "Masukan Port Internal :  " intport
-        portnya+=("$intport")
+	echo "portnya=$intport" >> /var/lib/premium-script/wibu.conf
+        
 	 
 echo -e ""
 echo -e "${cyan}======================================${off}"
@@ -120,7 +149,7 @@ echo -e "${off}"
 	exit 0
 	fi
 	
-        protocoll+=("$proto")
+        echo "protocolnya=$proto" >> /var/lib/premium-script/
 	#Periksa kembali dengan pengguna apakah ini konfigurasi yang benar
 	echo -e "${cyan}======================================${off}"
 	echo "   IP:Port : $vpsip:$intport"
