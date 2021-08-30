@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /root
+cd
 
 #figlet -f slant Install WS | lolcat
 # Install Template
