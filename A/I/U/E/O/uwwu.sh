@@ -10,7 +10,7 @@ mkdir -p enc
 shc -r -f usernew && rm usernew && rm usernew.x.c && mv usernew.x usernew && chmod +x usernew && cp usernew enc/usernew.sh
 shc -r -f hostnya && rm hostnya && rm hostnya.x.c && mv hostnya.x hostnya && chmod +x hostnya && cp hostnya enc/host.sh
 shc -r -f add-ws && rm add-ws && rm add-ws.x.c && mv add-ws.x add-ws && chmod +x add-ws && cp add-ws enc/add-ws.sh
-shc -r -f add-vless && rm add-vless && rm add-vless.x.c && mv add-vless.x add-vless && chmod +x add-vless && cp add-wg enc/add-vless.sh
+shc -r -f add-vless && rm add-vless && rm add-vless.x.c && mv add-vless.x add-vless && chmod +x add-vless && cp add-vless enc/add-vless.sh
 shc -r -f add-wg && rm add-wg && rm add-wg.x.c && mv add-wg.x add-wg && chmod +x add-wg && cp add-wg enc/add-wg.sh
 shc -r -f add-ss && rm add-ss && rm add-ss.x.c && mv add-ss.x add-ss && chmod +x add-ss && cp add-ss enc/add-ss.sh
 shc -r -f add-ssr && rm add-ssr && rm add-ssr.x.c && mv add-ssr.x add-ssr && chmod +x add-ssr && cp add-ssr enc/add-ssr.sh
