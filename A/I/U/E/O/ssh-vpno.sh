@@ -173,9 +173,9 @@ connect = 127.0.0.1:109
 accept = 171
 connect = 127.0.0.1:22
 
-[websocket]
-accept = 443
-connect = 700
+[ws-stunnel]
+accept = 2096
+connect = 127.0.0.1:443
 
 [dropbear]
 accept = 777
@@ -189,7 +189,7 @@ END
 
 #SSLH
 apt-get install sslh -y
-#Forward 443 = 77 = 567
+#Forward 443 = ws
 wget -O /etc/default/sslh "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/sslh.conf"
 service sslh restart
 
