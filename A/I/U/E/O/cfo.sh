@@ -37,18 +37,18 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      --data '{"type":"A","name":"'${SUB_DOMAIN}'","content":"'${IP}'","ttl":120,"proxied":false}')
 echo "Host : $SUB_DOMAIN"
 echo $SUB_DOMAIN > /root/domain
-sleep 0.5
-wget -O /usr/bin/dhn "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/dhn.sh"
-wget -O /usr/bin/dhn2 "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/dhn2.sh"
-wget -O /usr/bin/dhn3 "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/dhn3.sh"
-wget -O /usr/bin/nza "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/nza.sh"
-wget -O /usr/bin/wcc "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/cs_wc.sh"
 
-chmod +x /usr/bin/dhn
-chmod +x /usr/bin/dhn2
-chmod +x /usr/bin/dhn3
-chmod +x /usr/bin/nza
-chmod +x /usr/bin/wcc
+#wget -O /usr/bin/dhn "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/dhn.sh"
+#wget -O /usr/bin/dhn2 "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/dhn2.sh"
+#wget -O /usr/bin/dhn3 "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/dhn3.sh"
+#wget -O /usr/bin/nza "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/nza.sh"
+#wget -O /usr/bin/wcc "https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/cs_wc.sh"
+
+#chmod +x /usr/bin/dhn
+#chmod +x /usr/bin/dhn2
+#chmod +x /usr/bin/dhn3
+#chmod +x /usr/bin/nza
+#chmod +x /usr/bin/wcc
 
 echo -e "Done Record Domain For VPS" | lolcat
 figlet -f slant AFDHAN - NEZA | lolcat
