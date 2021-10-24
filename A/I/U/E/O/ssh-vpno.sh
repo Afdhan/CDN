@@ -70,7 +70,7 @@ apt-get remove --purge exim4 -y
 # install wget and curl
 apt -y install wget curl
 
-apt install shc -y
+apt install wondershaper -y
 
 #figlet
 apt-get install figlet -y
