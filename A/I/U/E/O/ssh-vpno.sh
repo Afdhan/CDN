@@ -14,10 +14,10 @@ ver=$VERSION_ID
 country=ID
 state=Indonesia
 locality=Indonesia
-organization=www.nezavpn.com
-organizationalunit=www.nezavpn.com
-commonname=www.nezavpn.com
-email=admin@nezavpn.com
+organization=worldssh.tech
+organizationalunit=worldssh.tech
+commonname=worldssh.tech
+email=admin@worldssh.tech
 
 # simple password minimal
 wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/Afdhan/sc/main/password"
