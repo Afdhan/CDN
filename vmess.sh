@@ -66,7 +66,7 @@ systemctl restart v2ray@none
 service cron restart
 clear
 echo -e ""
-echo -e "=========[ V2RAY/VMESS ]=========" | lolcat
+echo -e "=========[ V2RAY/VMESS ]========="
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
 echo -e "port TLS       : ${tls}"
@@ -76,11 +76,11 @@ echo -e "alterId        : 2"
 echo -e "Security       : auto"
 echo -e "network        : ws"
 echo -e "path           : /WorldSSH"
-echo -e "=================================" | lolcat
+echo -e "================================="
 echo -e "link TLS       : ${vmesslink1}"
-echo -e "=================================" | lolcat
+echo -e "================================="
 echo -e "link none TLS  : ${vmesslink2}"
-echo -e "=================================" | lolcat
+echo -e "================================="
 echo -e "Aktif Selama   : ${masaaktif} Hari"
 echo -e "Berakhir Pada  : ${exp}"
 echo -e "Mod By Dhansss & NezaVPN"
