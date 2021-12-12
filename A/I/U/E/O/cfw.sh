@@ -5,10 +5,10 @@ NC='\e[0m'
 apt install jq curl -y
 DOMAIN=worldssh.tech
 #sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
-read -p "Subdomain :" sub
-if[$sub = ""]; then
-   sub= $(</dev/urandom tr -dc a-z0-9 | head -c4)
-fi
+read -p "  Subdomain : " sub
+#if[$sub = ""]; then
+  # sub= $(</dev/urandom tr -dc a-z0-9 | head -c4)
+#fi
 echo $sub > /root/cfku
 SUB_DOMAIN=${sub}.worldssh.tech
 CF_ID=neza.afdhan@gmail.com
