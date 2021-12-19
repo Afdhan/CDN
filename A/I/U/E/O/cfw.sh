@@ -9,6 +9,7 @@ read -p "  Subdomain : " sub
 #if[$sub = ""]; then
   # sub= $(</dev/urandom tr -dc a-z0-9 | head -c4)
 #fi
+sleep 1
 echo $sub > /root/cfku
 SUB_DOMAIN=${sub}.worldssh.tech
 CF_ID=neza.afdhan@gmail.com
@@ -58,4 +59,4 @@ echo -e "Done Record Domain For VPS" | lolcat
 #figlet -f slant AFDHAN - NEZA | lolcat
 #sleep 1
 
-rm -f /root/cfo.sh
+rm -f /root/cfw.sh
