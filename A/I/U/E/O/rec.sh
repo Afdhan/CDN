@@ -2,7 +2,8 @@
 
 sub=$(cat /root/cfku)
 DOMAIN=$(cat /root/sdomain)
-SUB_DOMAIN=$(cat /root/subdomain)
+sd=$(cat /root/subdomain)
+SUB_DOMAIN=*.${sd}
 CF_ID=neza.afdhan@gmail.com
 CF_KEY=c7ce6739f7548dcb626dcbee71140345f2625
 
