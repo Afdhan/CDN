@@ -1,10 +1,11 @@
 #!/bin/bash
 
 sub=$(cat /root/cfku)
-DOMAIN=nezavpn.my.id
-SUB_DOMAIN=*.${sub}.nezavpn.my.id
+DOMAIN=$(cat /root/sdomain)
+SUB_DOMAIN=$(cat /root/subdomain)
 CF_ID=neza.afdhan@gmail.com
 CF_KEY=c7ce6739f7548dcb626dcbee71140345f2625
+
 set -euo pipefail
 IP=$(wget -qO- ipinfo.io/ip);
 ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN}&status=active" \
@@ -32,3 +33,6 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      --data '{"type":"A","name":"'${SUB_DOMAIN}'","content":"'${IP}'","ttl":120,"proxied":false}')
 
 rm -f /root/cfku
+rm -f /root/sdomain
+rm -f /root/subdomain
+
