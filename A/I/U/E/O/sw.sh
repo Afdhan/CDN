@@ -285,6 +285,28 @@ echo "unset HISTFILE" >> /etc/profile
 
 cd
 
+cat > /etc/issue.net <<EOF
+<p style="text-align:center">
+<font color="red">══════════════════════════</font><br>
+<font color="#5f4dee" style="letter-spacing:5px;"><b><a href="https://worldssh.tech">W O R L D S S H _ S E R V E R</a></b></font><br>
+<font color="red">══════════════════════════</font><br>
+<font color="#1E90FF"><b> No DDOS </b></font><br>
+<font color="#fc0303"><b> No Spam </b></font><br>
+<font color="#fc7303"><b> No Fraud </b></font><br>
+<font color="#ff00ff"><b> No Torrent </b></font><br>
+<font color="#0000cd"><b> No Hacking </b></font><br>
+<font color="#9d03fc"><b> No Carding </b></font><br>
+<font color="#0367fc"><b> No Criminal Cyber </b></font><br>
+<font color="#fc0303"><b> No Playstation Site </b></font><br>
+<font color="#0367fc"><b> Max Login 2 Device </b></font><br>
+<font color="#FF0808"><b> Auto Delete MultiLogin </b></font><br>
+<font color="red">══════════════════════════</font><br>
+<font color="#5f4dee">
+Don't Forget To Support <a href="https://worldssh.tech">WorldSH</a> By Clicking An Ad Banner On The <a href="https://worldssh.tech">WorldSSH</a> Website.
+</font><br>
+<font color="red">══════════════════════════</font><br>
+EOF
+
 rm -f /root/key.pem
 rm -f /root/cert.pem
 rm -f /root/sw.sh
