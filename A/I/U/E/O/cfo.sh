@@ -9,6 +9,9 @@ echo $sub > /root/cfku
 SUB_DOMAIN=${sub}.nezavpn.my.id
 CF_ID=neza.afdhan@gmail.com
 CF_KEY=c7ce6739f7548dcb626dcbee71140345f2625
+echo $DOMAIN > /root/sdomain
+echo $SUB_DOMAIN > /root/subdomain
+
 set -euo pipefail
 IP=$(wget -qO- ipinfo.io/ip);
 echo "Record DNS ${SUB_DOMAIN}..."
