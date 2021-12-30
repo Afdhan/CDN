@@ -44,7 +44,7 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      -H "Content-Type: application/json" \
      --data '{"type":"A","name":"'${SUB_DOMAIN}'","content":"'${IP}'","ttl":120,"proxied":false}')
 
-cat > /etc/nginx/sites-enabled/wildcard_subdomain << END
+cat > /etc/wildcard_subdomain << END
 
 server {
     server_name ${SUB_DOMAIN};
@@ -104,9 +104,9 @@ rm -f /root/gmail
 
 rm -f /root/key
 
- systemctl daemon-reload
+ #systemctl daemon-reload
 
- systemctl restart nginx
+# systemctl restart nginx
 
  
 
