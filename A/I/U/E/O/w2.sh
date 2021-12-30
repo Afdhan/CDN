@@ -154,4 +154,6 @@ echo "Domain Wildcard Tersimpan Di /root/wildcard_subdomain
 
 echo ""
 
- 
+rm -f jhon.sh
+rm -f w2.sh
+
