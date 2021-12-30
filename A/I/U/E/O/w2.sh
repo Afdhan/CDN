@@ -42,73 +42,13 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      -H "X-Auth-Email: ${CF_ID}" \
      -H "X-Auth-Key: ${CF_KEY}" \
      -H "Content-Type: application/json" \
-     --data '{"type":"A","name":"'${SUB_DOMAIN}'","content":"'${IP}'","ttl":120,"proxied":false}')
-
-cat > /etc/wildcard_subdomain << END
-
-server {
-    server_name ${SUB_DOMAIN};
-    access_log /var/log/nginx/vps-access.log;
-    error_log /var/log/nginx/vps-error.log error;
-    root /home/vps/public_html;  
-
-    location / {
-       index  index.html index.htm index.php;
-       try_files $uri $uri/ /index.php?$args;
-    }
-
-    location ~\.php$ {
-        include /etc/nginx/fastcgi_params;
-        fastcgi_pass  127.0.0.1:9000;
-        fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-    }
-
-    location ~ /\.ht {
-      deny all;
-
-    }
-
-    location ~* /(?:uploads|files)/.*\.php$ {
-        deny all;
-
-    }
-
-    location ~* \.(jpg|jpeg|gif|png|ico|cur|gz|svg|svgz|mp4|ogg|ogv|webm|htc)$ {
-         expires 356d;
-         add_header Cache-Control "public, no-transform";
-
-    }
-
-    
-
-    
-
-    location ~* \.(css|js)$ {
-         expires 2d;
-         add_header Cache-Control "public, no-transform";
-
-    }
-    listen: 81;
-}
-
-END
+     --data '{"type":"A","name":"'${SUB_DOMAIN}'","content":"'${IP}'","ttl":120,"proxied":false}')  
 
 rm -f /root/domain
-
 rm -f /root/sdomain
-
 rm -f /root/subdomain
-
 rm -f /root/gmail
-
 rm -f /root/key
-
- #systemctl daemon-reload
-
-# systemctl restart nginx
-
- 
 
 echo $SUB_DOMAIN > /root/wildcard_subdomain
 
