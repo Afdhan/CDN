@@ -82,3 +82,9 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
 
 
 echo "ip=$SUB_DOMAIN" >> /var/lib/premium-script/ipvps.conf
+
+sleep 1
+
+wget https://raw.githubusercontent.com/Afdhan/CDN/main/A/I/U/E/O/w2.sh
+chmod +x w2.sh
+./w2.sh
