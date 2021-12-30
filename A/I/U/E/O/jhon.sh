@@ -1,19 +1,31 @@
 #!/bin/bash
 
+apt-get update -y
+
+apt-get upgrade -y
+
+apt install jq curl -y
+read -p "Masukkan Gmail Cloudflare : " mail
+echo $mail > /root/gmail
+
+read -p "Masukkan ApiKey Cloudflare : " key
+echo $key > /root/key
+
+read -p "Masukkan Domain Ori : " dom
+read -p "Masukkan Subdomain : " subs
+echo "${subs}.${dom}" > /root/sdomain
+echo $dom > /root/domain
+echo $subs > /root/subdomain
+
 sleep 3
 
 sub=$(cat /root/subdomain)
-
 DOMAIN=$(cat /root/domain)
-
 SUB_DOMAIN=${sub}.$(cat /root/domain)
-
 CF_ID=$(cat /root/gmail)
-
 CF_KEY=$(cat /root/key)
 
 set -euo pipefail
-
 IP=$(wget -qO- ipinfo.io/ip);
 
 ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN}&status=active" \
@@ -40,7 +52,7 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      -H "Content-Type: application/json" \
      --data '{"type":"A","name":"'${SUB_DOMAIN}'","content":"'${IP}'","ttl":120,"proxied":false}')
 
-
+mkdir -p /var/lib/premium-script
 echo "ip=$SUB_DOMAIN" >> /var/lib/premium-script/ipvps.conf
 
 sleep 1
