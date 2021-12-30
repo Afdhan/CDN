@@ -1,29 +1,5 @@
 #!/bin/bash
 
-apt-get update -y
-
-apt-get upgrade -y
-
-apt install jq curl -y
-
-read -p "Masukkan Gmail Cloudflare : " mail
-
-echo $mail > /root/gmail
-
-read -p "Masukkan ApiKey Cloudflare : " key
-
-echo $key > /root/key
-
-read -p "Masukkan Domain Ori : " dom
-
-read -p "Masukkan Subdomain : " subs
-
-echo "${subs}.${dom}" > /root/sdomain
-
-echo $dom > /root/domain
-
-echo $subs > /root/subdomain
-
 sleep 3
 
 sub=$(cat /root/subdomain)
@@ -59,13 +35,9 @@ if [[ "${#RECORD}" -le 10 ]]; then
 fi
 
 RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
-
      -H "X-Auth-Email: ${CF_ID}" \
-
      -H "X-Auth-Key: ${CF_KEY}" \
-
      -H "Content-Type: application/json" \
-
      --data '{"type":"A","name":"'${SUB_DOMAIN}'","content":"'${IP}'","ttl":120,"proxied":false}')
 
 
