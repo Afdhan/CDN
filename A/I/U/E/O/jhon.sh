@@ -14,13 +14,15 @@ read -p "Masukkan ApiKey Cloudflare : " key
 
 echo $key > /root/key
 
-read -p "Masukkan Domain Ori : " DOMAIN
+read -p "Masukkan Domain Ori : " dom
 
-echo $DOMAIN > /root/domain
+read -p "Masukkan Subdomain : " subs
 
-read -p "Masukkan Subdomain : " sub
+echo "${subs}.${dom}" > /root/sdomain
 
-echo $sub > /root/subdomain
+echo $dom > /root/domain
+
+echo $subs > /root/subdomain
 
 sleep 3
 
