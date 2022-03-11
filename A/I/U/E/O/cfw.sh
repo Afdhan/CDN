@@ -13,7 +13,7 @@ sleep 1
 echo $sub > /root/cfku
 SUB_DOMAIN=${sub}.worldssh.tech
 CF_ID=neza.afdhan@gmail.com
-CF_KEY=c7ce6739f7548dcb626dcbee71140345f2625
+CF_KEY=144fa068a8533d3f4ce31fab53333bb04cac3
 
 echo $DOMAIN > /root/sdomain
 echo $SUB_DOMAIN > /root/subdomain
