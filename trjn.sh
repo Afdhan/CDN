@@ -1,5 +1,5 @@
 #!/bin/bash
-
+bersih
 clear
 uuid1=$(cat /etc/trojan-go/uuid.txt)
 uuid2=$(cat /etc/trojan/uuid.txt)
