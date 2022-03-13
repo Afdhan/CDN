@@ -22,8 +22,8 @@ bash -c "$(wget -O- https://raw.githubusercontent.com/trojan-gfw/trojan-quicksta
 mkdir /root/.acme.sh
 curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
 chmod +x /root/.acme.sh/acme.sh
-#read -p "Input Email For Cert Register : " maile
-#/root/.acme.sh/acme.sh --register-account -m $maile
+read -p "Input Email For Cert Register : " maile
+/root/.acme.sh/acme.sh --register-account -m $maile
 /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
 service squid start
