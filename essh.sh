@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+bersih
 MYIP=$(wget -qO- ipinfo.io/ip);
 
 clear
