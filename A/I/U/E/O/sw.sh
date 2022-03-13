@@ -60,6 +60,21 @@ systemctl start rc-local.service
 echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6
 sed -i '$ i\echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6' /etc/rc.local
 
+
+cat > /usr/bin/bersih << EOF
+#!/bin/bash
+echo 1 > /proc/sys/vm/drop_caches
+echo 2 > /proc/sys/vm/drop_caches
+echo 3 > /proc/sys/vm/drop_caches
+swapoff -a
+swapon -a
+ban
+clear-log
+EOF
+
+chmod +x /usr/bin/bersih
+
+
 #update
 apt update -y
 apt upgrade -y
