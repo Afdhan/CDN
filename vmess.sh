@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+bersih
 clear
 source /var/lib/premium-script/ipvps.conf
 if [[ "$IP" = "" ]]; then
