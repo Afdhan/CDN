@@ -27,6 +27,7 @@ if [[ ! -e $maile || $maile == ""]]; then
 maile = "admin@worldssh.tech"
 fi
 /root/.acme.sh/acme.sh --register-account -m $maile
+/root/.acme.sh/acme.sh --deactivate-account
 /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
 service squid start
