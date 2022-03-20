@@ -29,6 +29,7 @@ chmod +x /root/.acme.sh/acme.sh
 /root/.acme.sh/acme.sh --register-account -m neza.afdhan@gmail.com
 sleep 1
 /root/.acme.sh/acme.sh --deactivate-account
+#/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
 /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
 service squid start
