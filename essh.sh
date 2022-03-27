@@ -24,7 +24,7 @@ sqd="$(cat ~/log-install.txt | grep -w "Squid" | cut -d: -f2)"
 drop="$(cat ~/log-install.txt | grep -w " Dropbear" | cut -d: -f2)"
 ovpn="$(netstat -nlpt | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
 ovpn2="$(netstat -nlpu | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
-cat > /etc/port-$Login <<END
+cat > /etc/port-$Login.json <<END
 {
       "openssh": "22",
       "dropbear": "${drop}",
