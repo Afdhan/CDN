@@ -21,19 +21,21 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXIST} && ${user_EXISTS} == '0' ]]; 
 			exit 1
 		fi
 	done
-users="WorldSSH_GO_$user"
-user2="WorldSSH_GFW_$user"
+#users="WorldSSH_GO_$user"
+#user2="WorldSSH_GFW_$user"
+uuid=$(cat /proc/sys/kernel/random/uuid)
+echo $uuid > /etc/trojan/$user-uuid.txt
 read -p "Expired (hari) : " masaaktif
 tnggl="$tgl2 $bln2, $thn2"
-sed -i '/"'""$uuid1""'"$/a\,"'""$users""'"' /etc/trojan-go/config.json
-sed -i '/"'""$uuid2""'"$/a\,"'""$user2""'"' /etc/trojan/config.json
+sed -i '/"'""$uuid1""'"$/a\,"'""$uuid""'"' /etc/trojan-go/config.json
+sed -i '/"'""$uuid2""'"$/a\,"'""$uuid""'"' /etc/trojan/config.json
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 echo -e "### $user $exp" >> /etc/trojan-go/akun.conf
 echo -e "### $user $exp" >> /etc/trojan/akun.conf
 systemctl restart trojan-go
 systemctl restart trojan
-trojangolink="trojan-go://${users}@${domain}:${trojango}/?sni=${domain}&type=ws&host=${domain}&path=/WorldSSH&encryption=none#${user}"
-trojanlink="trojan://${user2}@${domain}:${tr}/?sni=bug-anda.com#${user}"
+trojangolink="trojan-go://${uuid}@${domain}:${trojango}/?sni=${domain}&type=ws&host=${domain}&path=/WorldSSH&encryption=none#${user}"
+trojanlink="trojan://${uuid}@${domain}:${tr}/?sni=bug-anda.com#${user}"
 
 clear
 echo -e ""
@@ -44,10 +46,10 @@ echo -e " Remarks          : ${user}"
 echo -e " Host             : ${domain}"
 echo -e " Port Trojan-GFW  : ${tr}"
 echo -e " Port Trojan-GO   : ${trojango}"
-echo -e " Key Trojan-GFW   : ${user2}"
-echo -e " Key Trojan-GO    : ${users}"
-echo -e " Password Igniter : ${users}"
-echo -e " Path WebSocket   : /DhanZaa"
+echo -e " Key Trojan-GFW   : ${uuid}"
+echo -e " Key Trojan-GO    : ${uuid}"
+echo -e " Password Igniter : ${uuid}"
+echo -e " Path WebSocket   : /WorldSSH"
 echo -e "================================="
 echo -e " Trojan-GFW       : ${trojanlink}"
 echo -e "================================="
