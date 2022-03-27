@@ -34,7 +34,7 @@ cat>/etc/v2ray/$user-tls.json<<EOF
       "add": "${domain}",
       "port": "${tls}",
       "id": "${uuid}",
-      "aid": "2",
+      "aid": "0",
       "net": "ws",
       "path": "/WorldSSH",
       "type": "none",
@@ -49,13 +49,45 @@ cat>/etc/v2ray/$user-none.json<<EOF
       "add": "${domain}",
       "port": "${none}",
       "id": "${uuid}",
-      "aid": "2",
+      "aid": "0",
       "net": "ws",
       "path": "/WorldSSH",
       "type": "none",
       "host": "${domain}",
       "tls": "none"
 }
+EOF
+cat>/etc/v2ray/$user-cfg.json<<EOF
+[
+      {
+      "v": "2",
+      "ps": "${user}",
+      "add": "${domain}",
+      "port": "${tls}",
+      "id": "${uuid}",
+      "aid": "0",
+      "net": "ws",
+      "path": "/WorldSSH",
+      "type": "none",
+      "host": "",
+      "tls": "tls"
+     }
+     ],
+     [
+     {
+      "v": "2",
+      "ps": "${user}",
+      "add": "${domain}",
+      "port": "${none}",
+      "id": "${uuid}",
+      "aid": "0",
+      "net": "ws",
+      "path": "/WorldSSH",
+      "type": "none",
+      "host": "${domain}",
+      "tls": "none"
+     }
+]
 EOF
 vmess_base641=$( base64 -w 0 <<< $vmess_json1)
 vmess_base642=$( base64 -w 0 <<< $vmess_json2)
@@ -72,7 +104,7 @@ echo -e "Domain         : ${domain}"
 echo -e "port TLS       : ${tls}"
 echo -e "port none TLS  : ${none}"
 echo -e "id             : ${uuid}"
-echo -e "alterId        : 2"
+echo -e "alterId        : 0"
 echo -e "Security       : auto"
 echo -e "network        : ws"
 echo -e "path           : /WorldSSH"
