@@ -15,10 +15,27 @@ domain=$(cat /etc/v2ray/domain)
 else
 domain=$IP
 fi
+wstls="$(cat ~/log-install.txt | grep -w "WebSocket TLS" | cut -d: -f2)"
+wsdrop="$(cat ~/log-install.txt | grep -w "WebSocket Dropbear" | cut -d: -f2)"
+wsssh="$(cat ~/log-install.txt | grep -w "WebSocket OpenSSH" | cut -d: -f2)"
+wsovpn="$(cat ~/log-install.txt | grep -w "WebSocket OpenVPN" | cut -d: -f2)"
 ssl="$(cat ~/log-install.txt | grep -w "Stunnel4" | cut -d: -f2)"
 sqd="$(cat ~/log-install.txt | grep -w "Squid" | cut -d: -f2)"
+drop="$(cat ~/log-install.txt | grep -w " Dropbear" | cut -d: -f2)"
 ovpn="$(netstat -nlpt | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
 ovpn2="$(netstat -nlpu | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
+cat > /etc/port-$Login <<END
+{
+      "openssh": "22",
+      "dropbear": "${drop}",
+      "stunnel": "${ssl}",
+      "wstls": "${wstls}",
+      "wsdrop": "${wsdrop}",
+      "wsssh": "${wsssh}",
+      "wsovpn": "${wsovpn}",
+      "squid": "${sqd}"
+ }
+END
 clear
 useradd -e `date -d "$masaaktif days" +"%Y-%m-%d"` -s /bin/false -M $Login
 exp="$(chage -l $Login | grep "Account expires" | awk -F": " '{print $2}')"
@@ -33,9 +50,12 @@ echo -e "Domain         : $domain"
 echo -e "==============================="
 echo -e "Host           : $MYIP"
 echo -e "OpenSSH        : 22"
-echo -e "Dropbear       : 109, 143"
+echo -e "Dropbear       :$drop"
 echo -e "Stunnel        :$ssl"
-echo -e "WebSocket      : 8880"
+echo -e "WS SSL         :$wstls"
+echo -e "WS Dropbear    :$wsdrop"
+echo -e "WS OpenSSH     :$wsssh"
+echo -e "WS OVPN        :$wsovpn"
 echo -e "Port Squid     :$sqd"
 echo -e "OpenVPN        : TCP $ovpn http://$MYIP:81/client-tcp-$ovpn.ovpn"
 echo -e "OpenVPN        : UDP $ovpn2 http://$MYIP:81/client-udp-$ovpn2.ovpn"
