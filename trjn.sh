@@ -25,7 +25,7 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXIST} && ${user_EXISTS} == '0' ]]; 
 #user2="WorldSSH_GFW_$user"
 pth="/WorldSSH"
 uuid=$(cat /proc/sys/kernel/random/uuid)
-echo "{$uuid $pth $tr $trojango" > /etc/trojan/$user-uuid.txt
+echo "{$uuid $pth $tr $trojango}" > /etc/trojan/$user-uuid.txt
 read -p "Expired (hari) : " masaaktif
 tnggl="$tgl2 $bln2, $thn2"
 sed -i '/"'""$uuid1""'"$/a\,"'""$uuid""'"' /etc/trojan-go/config.json
