@@ -317,7 +317,7 @@ cat > /etc/issue.net <<EOF
 <font color="#FF0808"><b> Auto Delete MultiLogin </b></font><br>
 <font color="red">══════════════════════════</font><br>
 <font color="#5f4dee">
-Don't Forget To Support <a href="https://worldssh.tech">WorldSH</a> By Clicking An Ad Banner On The <a href="https://worldssh.tech">WorldSSH</a> Website.
+Don't Forget To Support <a href="https://worldssh.tech">WorldSSH</a> By Clicking An Ad Banner On The <a href="https://worldssh.tech">WorldSSH</a> Website.
 </font><br>
 <font color="red">══════════════════════════</font><br>
 EOF
