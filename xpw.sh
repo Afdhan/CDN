@@ -59,3 +59,4 @@ if [[ "$exp2" = "0" ]]; then
 sed -i "/^### $user $exp/,/^},{/d" /etc/v2ray/vless.json
 sed -i "/^### $user $exp/,/^},{/d" /etc/v2ray/vnone.json
 fi
+done
