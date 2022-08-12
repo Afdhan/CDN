@@ -3,13 +3,13 @@ red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
 apt install jq curl -y
-DOMAIN=nezavpn.my.id
+DOMAIN=worldssh.studio
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
 echo $sub > /root/cfku
-SUB_DOMAIN=${sub}.nezavpn.my.id
+SUB_DOMAIN=${sub}.worldssh.studio
 CF_ID=neza.afdhan@gmail.com
 CF_KEY=144fa068a8533d3f4ce31fab53333bb04cac3
-echo "nezavpn.my.id" > /root/sdomain
+echo "worldssh.studio" > /root/sdomain
 echo $SUB_DOMAIN > /root/subdomain
 
 set -euo pipefail
