@@ -10,8 +10,8 @@ else
 domain=$IP
 fi
 trojango="$(cat ~/log-install.txt | grep -i TroGO | cut -d: -f2|sed 's/ //g')"
-path="$(cat /etc/trojan-go/config.json | grep "path" | cut -d: -f2|sed 's/ //g' | cut -d '"' -f 2)"
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXIST} == '0' ]]; do
+path="$(cat /etc/trojan-go/config.json | grep "path" | cut -d: -f2|sed 's/ //g' | cut -d '\"' -f 2)"
+until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXIST} && ${user_EXISTS} == '0' ]]; do
 		read -rp "Remarks : " -e user
 		user_EXIST=$(grep -w $user /etc/trojan-go/akun.conf | wc -l)
 		if [[ ${user_EXIST} == "1" ]]; then
@@ -20,8 +20,7 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXIST} == '0' ]]; do
 			exit 1
 		fi
 	done
-uuid=$user
-#$(cat /proc/sys/kernel/random/uuid)
+uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (hari) : " masaaktif
 tgl=$(date -d "$masaaktif days" +"%d")
 bln=$(date -d "$masaaktif days" +"%b")
@@ -36,7 +35,7 @@ exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 echo -e "### $user $exp" >> /etc/trojan-go/akun.conf
 systemctl restart trojan-go
 
-trojangolink="trojan-go://${uuid}@${domain}:${trojango}/?sni=${domain}&type=ws&host=${domain}&path=${path}&encryption=none#${user}"
+trojangolink="trojan-go://${users}@${domain}:${trojango}/?sni=${domain}&type=ws&host=${domain}&path=${path}&encryption=none#${user}"
 cat>/etc/panel/$user-trojango.json<<EOF
 "created": "${tnggl}",
 "expired": "${expe}",

@@ -51,15 +51,15 @@ domain=$IP
 fi
 
 
-wsssh="$(cat ~/log-install.txt | grep -w "Websocket SSH" | cut -d: -f2|sed 's/ //g')"
-wsovpn="$(cat ~/log-install.txt | grep -w "Websocket Openvpn" | cut -d: -f2|sed 's/ //g')"
-ssl="$(cat ~/log-install.txt | grep -w "Stunnel" | cut -d: -f2|sed 's/ //g')"
-drop="$(cat ~/log-install.txt | grep -w "\- Dropbear" | cut -d: -f2)"
+wsssh="$(cat ~/log-install.txt | grep -w "Websocket SSH" | cut -d: -f2)"
+wsovpn="$(cat ~/log-install.txt | grep -w "Websocket Openvpn" | cut -d: -f2)"
+ssl="$(cat ~/log-install.txt | grep -w "Stunnel" | cut -d: -f2)"
+drop="$(cat ~/log-install.txt | grep -w "Dropbear" | cut -d: -f2)"
 sqd="$(cat ~/log-install.txt | grep -w "Squid Proxy" | cut -d: -f2)"
-ohps="$(cat ~/log-install.txt | grep -w "OHP SSH" | cut -d: -f2|sed 's/ //g')"
-ohpd="$(cat ~/log-install.txt | grep -w "OHP Dropbear" | cut -d: -f2|sed 's/ //g')"
-ohpv="$(cat ~/log-install.txt | grep -w "OHP OpenVPN" | cut -d: -f2|sed 's/ //g')"
-nginx="$(cat ~/log-install.txt | grep -w "Nginx" | cut -d: -f2|sed 's/ //g')"
+ohps="$(cat ~/log-install.txt | grep -w "OHP SSH" | cut -d: -f2)"
+ohpd="$(cat ~/log-install.txt | grep -w "OHP Dropbear" | cut -d: -f2)"
+ohpv="$(cat ~/log-install.txt | grep -w "OHP OpenVPN" | cut -d: -f2)"
+nginx="$(cat ~/log-install.txt | grep -w "Nginx" | cut -d: -f2)"
 ovpn="$(netstat -nlpt | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
 ovpn2="$(netstat -nlpu | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
 
@@ -95,7 +95,7 @@ cat > /etc/panel/ssh-$Login.json <<END
       "socks5": "8080",
       "ovpn_tcp1": "http://${domain}:${nginx}/client-tcp-$ovpn.ovpn",
       "ovpn_tcp2": "http://${domain}:${nginx}/client-tcp-443.ovpn",
-      "ovpn_udp": "http://${domain}:${nginx}/client-udp-$ovpn2.ovpn",
+      "ovpn_udp": "http://${domain}:${nginx}/client-tcp-$ovpn2.ovpn",
       "ovpn_ssl": "http://${domain}:${nginx}/client-tcp-ssl.ovpn",
       "created": "${tnggl}",
       "expired": "${expe}"
