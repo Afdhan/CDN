@@ -1,6 +1,6 @@
 <?php
 // Konfigurasi Kustom
-$auth_users = json_decode(file_get_contents('/data/data/com.termux/files/home/secure/filemanager_users.json'), true);
+//$auth_users = json_decode(file_get_contents('/data/data/com.termux/files/home/secure/filemanager_users.json'), true);
 //Default Configuration
 $CONFIG = '{"lang":"en","error_reporting":false,"show_hidden":false,"hide_Cols":false,"theme":"light"}';
 
