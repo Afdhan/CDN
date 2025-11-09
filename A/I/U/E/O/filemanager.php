@@ -27,7 +27,7 @@ $use_auth = true;
 // Login user name and password
 // Users: array('Username' => 'Password', 'Username2' => 'Password2', ...)
 // Generate secure password hash - https://tinyfilemanager.github.io/docs/pwd.html
-$auth_users = json_decode(file_get_contents('/data/data/com.termux/files/home/secure/filemanager_users.json'), true);
+$auth_users = {};
 
 // Readonly users
 // e.g. array('users', 'guest', ...)
